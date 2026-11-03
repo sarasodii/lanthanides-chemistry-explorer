@@ -86,7 +86,9 @@ h2 { font-size:calc(clamp(1.9rem, 4vw, 3.1rem) * var(--site-heading-scale)); mar
 .detail-num { font-size:.78rem;color:var(--muted);font-weight:800;letter-spacing:.08em;text-transform:uppercase; }
 .element-detail h3 { font-size:2rem;margin:8px 0 4px; }
 .detail-meta { color:var(--muted);font-size:.9rem; }
-.detail-description { color:var(--muted); line-height:1.65; margin:20px 0; }
+.detail-description { color:var(--muted); line-height:1.65; margin:7px 0 17px; }
+.detail-secondary { color:var(--muted); line-height:1.65; margin:7px 0 22px; }
+.detail-section-label { color:var(--ink); font-size:.76rem; font-weight:850; letter-spacing:.08em; text-transform:uppercase; margin-top:10px; }
 .detail-facts { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:auto; }
 .fact { padding:14px; border:1px solid var(--line); border-radius:15px; background:var(--surface); }
 .fact span { display:block; color:var(--muted);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px; }
@@ -256,38 +258,22 @@ h2 { font-size:calc(clamp(1.9rem, 4vw, 3.1rem) * var(--site-heading-scale)); mar
 </div>
 <script>
 const elements = [
- {z:57,s:'La',name:'Lanthanum',color:'#C6A6F8',abundance:'18.3 ppm',ionColor:'Colorless',note:'The lecture uses La³⁺ as a colourless example and includes lanthanum in coordination complexes such as [La(acac)₃(H₂O)₂] and [La(EDTA)(H₂O)₄].',extra:'The slide gives La as an example of a large ion that can accommodate high coordination numbers.'},
- {z:58,s:'Ce',name:'Cerium',color:'#A8D8F0',abundance:'46.1 ppm',ionColor:'Colorless (Ce³⁺)',note:'The lecture highlights cerium separation by selective oxidation from Ce³⁺ to Ce⁴⁺. It also lists cerium compounds in lighter flints, petroleum refining and other applications.',extra:'Ce³⁺ is listed as colourless in the lecture’s ion-colour table; Ce⁴⁺ is discussed separately in separation chemistry.'},
- {z:59,s:'Pr',name:'Praseodymium',color:'#9ED9B6',abundance:'5.53 ppm',ionColor:'Green (Pr³⁺)',note:'The lecture lists Pr³⁺ as green in its colour table and discusses praseodymium in oxide/separation examples and glass colouring.',extra:'The lecture’s separation examples compare praseodymium with lanthanum.'},
- {z:60,s:'Nd',name:'Neodymium',color:'#B8B7F4',abundance:'23.9 ppm',ionColor:'Purple (Nd³⁺)',note:'Nd³⁺ is listed as purple in the slide colour table. The lecture also mentions neodymium in lasers, glass colouring and other material applications.',extra:'The slides include examples of coordination compounds and hydrated salts involving Nd.'},
- {z:61,s:'Pm',name:'Promethium',color:'#F4B2D0',abundance:'Not stated in the extracted examples',ionColor:'Pink (Pm³⁺)',note:'The lecture lists Pm³⁺ as pink and mentions promethium as a heat source in satellites.',extra:'The lecture notes promethium can occur in some uranium ores as a fission product.'},
- {z:62,s:'Sm',name:'Samarium',color:'#F3D27D',abundance:'Not stated in the extracted examples',ionColor:'Yellow (Sm³⁺)',note:'Sm³⁺ is listed as yellow in the slide colour table. The lecture also mentions Sm²⁺ as one of the +2 examples and samarium in headphones.',extra:'The coordination-number examples include samarium compounds.'},
- {z:63,s:'Eu',name:'Europium',color:'#E7A8C8',abundance:'Not stated in the extracted examples',ionColor:'Pale pink (Eu³⁺)',note:'Eu³⁺ is listed as pale pink in the lecture. The slides discuss europium in display phosphors and as a neutron absorber.',extra:'Eu²⁺ is listed among the less common +2 states.'},
- {z:64,s:'Gd',name:'Gadolinium',color:'#C9D4E6',abundance:'6.36 ppm',ionColor:'Colorless (Gd³⁺)',note:'Gd³⁺ is listed as colourless in the slide table. Gadolinium also appears in the lecture’s coordination examples and application list.',extra:'The slides include Gd in examples of coordination number 8 and in spectral comparisons.'},
- {z:65,s:'Tb',name:'Terbium',color:'#9CCFC9',abundance:'Not stated in the extracted examples',ionColor:'Paired with Eu³⁺ in the fⁿ/f¹⁴⁻ⁿ table',note:'The lecture includes terbium in coordination-number 8 examples and discusses Tb⁴⁺ in a radius table. The colour table pairs it with Eu³⁺ through the fⁿ/f¹⁴⁻ⁿ relationship.',extra:'Specific oxidation-state stability depends on context; the site retains the lecture’s examples without generalising beyond them.'},
- {z:66,s:'Dy',name:'Dysprosium',color:'#9BC1F0',abundance:'Not stated in the extracted examples',ionColor:'Paired with Sm³⁺ in the fⁿ/f¹⁴⁻ⁿ table',note:'Dysprosium appears in the lecture’s paired ion-colour table and is listed as a neutron absorber in nuclear reactors.',extra:'The lecture also includes dysprosium among lanthanide application examples.'},
- {z:67,s:'Ho',name:'Holmium',color:'#D5B6E8',abundance:'Not stated in the extracted examples',ionColor:'Paired with Pm³⁺ in the fⁿ/f¹⁴⁻ⁿ table',note:'Holmium appears in the slide colour table as the partner for promethium under the fⁿ/f¹⁴⁻ⁿ pattern. The lecture mentions holmium in steel alloys.',extra:'The colour relationship is reproduced as described in the lecture.'},
- {z:68,s:'Er',name:'Erbium',color:'#E9A9A0',abundance:'Not stated in the extracted examples',ionColor:'Paired with Nd³⁺ in the fⁿ/f¹⁴⁻ⁿ table',note:'Erbium is listed in the slide colour-pairing pattern and in optical filters and optical-fibre applications.',extra:'The lecture specifically names erbium optical fibre in its applications list.'},
- {z:69,s:'Tm',name:'Thulium',color:'#B8DAB4',abundance:'Not stated in the extracted examples',ionColor:'Paired with Pr³⁺ in the fⁿ/f¹⁴⁻ⁿ table',note:'Thulium appears in the lecture’s ion-colour table as the partner for praseodymium in the fⁿ/f¹⁴⁻ⁿ pattern.',extra:'The extracted slide table does not provide a separate prose application example for Tm.'},
- {z:70,s:'Yb',name:'Ytterbium',color:'#D3C3F3',abundance:'Not stated in the extracted examples',ionColor:'Paired with Ce³⁺ in the fⁿ/f¹⁴⁻ⁿ table',note:'The lecture lists Yb²⁺ among the +2 states and pairs Yb³⁺ with Ce³⁺ in the ion-colour table.',extra:'Ytterbium appears in the coordination chemistry discussion as part of hydrated acetylacetonate complexes.'},
- {z:71,s:'Lu',name:'Lutetium',color:'#C5C8D6',abundance:'0.75 ppm',ionColor:'Colorless (Lu³⁺)',note:'Lu³⁺ is listed as colourless in the lecture table. The lecture uses Lu³⁺ in its ion-exchange example, where smaller ions are described as forming stronger citrate complexes.',extra:'The slide states that coordination numbers higher than six are common for lanthanide ions, while Lu appears in examples of coordination chemistry.'}
+ {z:57,s:'La',name:'Lanthanum',color:'#C6A6F8',abundance:'18.3 ppm',ionColor:'Colorless',note:'Lanthanum is a large lanthanide whose La³⁺ ion is colourless and can accommodate high coordination numbers.',extra:'Examples include lanthanum complexes with acetylacetonate (acac) and EDTA.'},
+ {z:58,s:'Ce',name:'Cerium',color:'#A8D8F0',abundance:'46.1 ppm',ionColor:'Colorless (Ce³⁺)',note:'Cerium is notable for forming both Ce³⁺ and Ce⁴⁺, a difference used in its separation from other lanthanides.',extra:'Cerium compounds are used in lighter flints and petroleum refining.'},
+ {z:59,s:'Pr',name:'Praseodymium',color:'#9ED9B6',abundance:'5.53 ppm',ionColor:'Green (Pr³⁺)',note:'Praseodymium forms green Pr³⁺ ions and appears in lanthanide oxide and separation chemistry.',extra:'It is used in glass colouring and appears in separation examples alongside lanthanum.'},
+ {z:60,s:'Nd',name:'Neodymium',color:'#B8B7F4',abundance:'23.9 ppm',ionColor:'Purple (Nd³⁺)',note:'Neodymium forms purple Nd³⁺ ions and is used in optical and other materials.',extra:'Examples include lasers, glass colouring, coordination compounds and hydrated salts.'},
+ {z:61,s:'Pm',name:'Promethium',color:'#F4B2D0',abundance:'Not specified',ionColor:'Pink (Pm³⁺)',note:'Promethium forms Pm³⁺ ions, described here as pink, and is associated with radioactive fission products.',extra:'It can occur in uranium ores as a fission product and has been used as a heat source in satellites.'},
+ {z:62,s:'Sm',name:'Samarium',color:'#F3D27D',abundance:'Not specified',ionColor:'Yellow (Sm³⁺)',note:'Samarium commonly forms Sm³⁺, shown as yellow, and can also form Sm²⁺.',extra:'Samarium appears in coordination compounds and in headphone-related applications.'},
+ {z:63,s:'Eu',name:'Europium',color:'#E7A8C8',abundance:'Not specified',ionColor:'Pale pink (Eu³⁺)',note:'Europium forms pale-pink Eu³⁺ ions and can also occur in the +2 oxidation state.',extra:'It is used in display phosphors and has neutron-absorbing applications.'},
+ {z:64,s:'Gd',name:'Gadolinium',color:'#C9D4E6',abundance:'6.36 ppm',ionColor:'Colorless (Gd³⁺)',note:'Gadolinium commonly forms colourless Gd³⁺ ions and participates in high-coordination complexes.',extra:'Examples include coordination number 8 and comparisons of spectral properties.'},
+ {z:65,s:'Tb',name:'Terbium',color:'#9CCFC9',abundance:'Not specified',ionColor:'Not specified',note:'Terbium is a lanthanide represented in coordination number 8 compounds and discussions of Tb⁴⁺.',extra:'Its electronic configuration is paired with Eu³⁺ in the fⁿ/f¹⁴⁻ⁿ comparison.'},
+ {z:66,s:'Dy',name:'Dysprosium',color:'#9BC1F0',abundance:'Not specified',ionColor:'Not specified',note:'Dysprosium is a lanthanide included in electronic-configuration comparisons and nuclear applications.',extra:'It is used as a neutron absorber in nuclear reactors and is paired with Sm³⁺ in the fⁿ/f¹⁴⁻ⁿ comparison.'},
+ {z:67,s:'Ho',name:'Holmium',color:'#D5B6E8',abundance:'Not specified',ionColor:'Not specified',note:'Holmium is a lanthanide associated with steel alloys and electronic-configuration comparisons.',extra:'Its configuration is paired with Pm³⁺ in the fⁿ/f¹⁴⁻ⁿ relationship.'},
+ {z:68,s:'Er',name:'Erbium',color:'#E9A9A0',abundance:'Not specified',ionColor:'Not specified',note:'Erbium is a lanthanide used in optical technologies, especially optical fibres and filters.',extra:'Its configuration is paired with Nd³⁺ in the fⁿ/f¹⁴⁻ⁿ comparison.'},
+ {z:69,s:'Tm',name:'Thulium',color:'#B8DAB4',abundance:'Not specified',ionColor:'Not specified',note:'Thulium is a lanthanide included in comparisons of 4f-electron configurations.',extra:'Its configuration is paired with Pr³⁺ in the fⁿ/f¹⁴⁻ⁿ relationship.'},
+ {z:70,s:'Yb',name:'Ytterbium',color:'#D3C3F3',abundance:'Not specified',ionColor:'Not specified',note:'Ytterbium commonly forms Yb³⁺ and is also among the lanthanides that can form +2 ions.',extra:'It appears in hydrated acetylacetonate complexes and is paired with Ce³⁺ in the fⁿ/f¹⁴⁻ⁿ comparison.'},
+ {z:71,s:'Lu',name:'Lutetium',color:'#C5C8D6',abundance:'0.75 ppm',ionColor:'Colorless (Lu³⁺)',note:'Lutetium forms colourless Lu³⁺ ions and is one of the smaller lanthanide ions.',extra:'Its stronger citrate complex formation relative to La³⁺ is useful in ion-exchange separation.'}
 ];
-// Keep every element description intact while removing references to the
-// original teaching material. The previous version deleted whole sentences
-// beginning with “The lecture…” or “The slide…”, leaving empty detail panels.
-for (const e of elements) {
- const neutraliseSourceWording = text => text
-  .replace(/the lecture’s|the lecture's/gi, 'the chemistry reference’s')
-  .replace(/the lecture/gi, 'the chemistry reference')
-  .replace(/the slides/gi, 'the examples')
-  .replace(/the slide/gi, 'the example')
-  .replace(/slide colour table/gi, 'ion-colour table')
-  .replace(/slide table/gi, 'ion-colour table')
-  .replace(/\s{2,}/g, ' ').trim();
- e.note = neutraliseSourceWording(e.note);
- e.extra = neutraliseSourceWording(e.extra);
- e.ionColor = e.ionColor.replace(/in slide/gi, '');
-}
 const elementGrid=document.getElementById('elementGrid');
 const detail=document.getElementById('elementDetail');
 let selectedSymbol='La';
@@ -301,7 +287,7 @@ function renderElements(){
 function renderElementDetail(){
  const e=elements.find(x=>x.s===selectedSymbol)||elements[0];
  detail.style.setProperty('--tile-color',e.color);
- detail.innerHTML=`<div class="detail-top"><div><div class="detail-num">Atomic number ${e.z} · Lanthanide</div><h3>${e.name}</h3><div class="detail-meta">Symbol ${e.s} · Common series state: +3</div></div><div class="big-symbol">${e.s}</div></div><p class="detail-description">${e.note}</p><div class="detail-facts"><div class="fact"><span>Abundance</span><strong>${e.abundance}</strong></div><div class="fact"><span>Ion colour</span><strong>${e.ionColor}</strong></div></div><p class="source-note">${e.extra}</p>`;
+ detail.innerHTML=`<div class="detail-top"><div><div class="detail-num">Atomic number ${e.z} · Lanthanide</div><h3>${e.name}</h3><div class="detail-meta">Symbol ${e.s} · Common series state: +3</div></div><div class="big-symbol">${e.s}</div></div><div class="detail-section-label">Overview</div><p class="detail-description">${e.note}</p><div class="detail-section-label">Key chemistry & applications</div><p class="detail-secondary">${e.extra}</p><div class="detail-facts"><div class="fact"><span>Abundance</span><strong>${e.abundance}</strong></div><div class="fact"><span>Ion colour</span><strong>${e.ionColor}</strong></div></div>`;
 }
 document.getElementById('elementSearch').addEventListener('input',renderElements);
 renderElements();renderElementDetail();
