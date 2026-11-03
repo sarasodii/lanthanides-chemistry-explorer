@@ -6,7 +6,7 @@
 <title>Lanthanides — Chemistry Explorer</title>
 <style>
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --site-primary: #6D3BC4;
   --site-secondary: #16A6A1;
   --site-background: #F7F4FC;
@@ -272,10 +272,21 @@ const elements = [
  {z:70,s:'Yb',name:'Ytterbium',color:'#D3C3F3',abundance:'Not stated in the extracted examples',ionColor:'Paired with Ce³⁺ in the fⁿ/f¹⁴⁻ⁿ table',note:'The lecture lists Yb²⁺ among the +2 states and pairs Yb³⁺ with Ce³⁺ in the ion-colour table.',extra:'Ytterbium appears in the coordination chemistry discussion as part of hydrated acetylacetonate complexes.'},
  {z:71,s:'Lu',name:'Lutetium',color:'#C5C8D6',abundance:'0.75 ppm',ionColor:'Colorless (Lu³⁺)',note:'Lu³⁺ is listed as colourless in the lecture table. The lecture uses Lu³⁺ in its ion-exchange example, where smaller ions are described as forming stronger citrate complexes.',extra:'The slide states that coordination numbers higher than six are common for lanthanide ions, while Lu appears in examples of coordination chemistry.'}
 ];
+// Keep every element description intact while removing references to the
+// original teaching material. The previous version deleted whole sentences
+// beginning with “The lecture…” or “The slide…”, leaving empty detail panels.
 for (const e of elements) {
- e.note=e.note.replace(/The lecture[^.]*/gi,'').replace(/The slides?[^.]*/gi,'').replace(/in the lecture'?s?[^.]*/gi,'').replace(/in the slide[^.]*/gi,'').replace(/slide colour table|slide table/gi,'ion-colour table').replace(/\s{2,}/g,' ').trim();
- e.extra=e.extra.replace(/The lecture[^.]*/gi,'').replace(/The slides?[^.]*/gi,'').replace(/The slide[^.]*/gi,'').replace(/\s{2,}/g,' ').trim();
- e.ionColor=e.ionColor.replace(/in slide/gi,'');
+ const neutraliseSourceWording = text => text
+  .replace(/the lecture’s|the lecture's/gi, 'the chemistry reference’s')
+  .replace(/the lecture/gi, 'the chemistry reference')
+  .replace(/the slides/gi, 'the examples')
+  .replace(/the slide/gi, 'the example')
+  .replace(/slide colour table/gi, 'ion-colour table')
+  .replace(/slide table/gi, 'ion-colour table')
+  .replace(/\s{2,}/g, ' ').trim();
+ e.note = neutraliseSourceWording(e.note);
+ e.extra = neutraliseSourceWording(e.extra);
+ e.ionColor = e.ionColor.replace(/in slide/gi, '');
 }
 const elementGrid=document.getElementById('elementGrid');
 const detail=document.getElementById('elementDetail');
