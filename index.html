@@ -165,6 +165,31 @@ h2 { font-size:calc(clamp(1.9rem, 4vw, 3.1rem) * var(--site-heading-scale)); mar
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after {scroll-behavior:auto!important;animation:none!important;transition:none!important;} }
 @media (max-width:1000px) { .periodic-layout,.coordination-shell { grid-template-columns:1fr; } .shape-stage { min-height:540px; } .info-grid { grid-template-columns:1fr 1fr; } .steps { grid-template-columns:1fr 1fr; } }
 @media (max-width:650px) { .site-header { align-items:flex-start;flex-direction:column;gap:9px; } .nav { justify-content:flex-start; } .nav a { font-size:.75rem;padding:7px 9px; } .hero { padding-top:46px; } .section-head { align-items:flex-start;flex-direction:column; } .table-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } .element-tile { min-height:90px; } .info-grid,.chemistry-grid,.spectrum-grid { grid-template-columns:1fr; } .shape-facts { grid-template-columns:1fr 1fr; } .color-list { grid-template-columns:repeat(3,minmax(0,1fr)); } .steps { grid-template-columns:1fr; } .shape-stage { min-height:530px; } .detail-facts { grid-template-columns:1fr 1fr; } }
+
+/* Academic credits: visually distinct from the content cards */
+.hero-credit {display:flex;align-items:center;flex-wrap:wrap;gap:10px 13px;margin:25px 0 0;font-size:.86rem;font-weight:650;color:rgba(255,255,255,.91)}
+.hero-credit-code {display:inline-flex;align-items:center;padding:7px 11px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(255,255,255,.12);font-weight:850;letter-spacing:.08em}
+.hero-credit-divider {width:1px;height:20px;background:rgba(255,255,255,.38)}
+.hero-credit-sep {opacity:.55}
+.academic-panel {display:grid;grid-template-columns:minmax(260px,.82fr) minmax(0,1.18fr);overflow:hidden}
+.academic-identity {padding:clamp(24px,4vw,42px);background:linear-gradient(155deg,#eee6fc,#faf7ff);border-right:1px solid var(--line)}
+.academic-eyebrow {color:#6d3bc4;font-size:.74rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+.academic-eyebrow span {padding:0 7px;color:#a59ab7}
+.academic-identity h3 {font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.16;margin:22px 0 12px;color:#281b3f}
+.academic-identity>p {color:#665a77;line-height:1.65;margin:0}
+.academic-people {display:grid;gap:20px;border-top:1px solid #d8caed;margin-top:32px;padding-top:26px}
+.academic-label {display:block;font-size:.7rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase;color:#7a6d90;margin-bottom:7px}
+.academic-people strong {display:block;color:#291d3b;font-size:1rem;line-height:1.45}
+.academic-references {padding:clamp(24px,4vw,42px)}
+.academic-references-heading {display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.academic-ref-count {color:var(--muted);font-size:.78rem;white-space:nowrap}
+.reference-list {list-style:none;counter-reset:ref;padding:0;margin:12px 0 0}
+.reference-list li {counter-increment:ref;display:grid;grid-template-columns:36px minmax(0,1fr);gap:15px;align-items:start;padding:17px 0;border-bottom:1px solid var(--line);line-height:1.65;color:var(--muted);font-size:.9rem}
+.reference-list li::before {content:counter(ref,decimal-leading-zero);font-weight:850;color:var(--site-primary);font-size:.8rem;letter-spacing:.05em;padding-top:2px}
+.reference-list li strong {color:var(--ink);font-weight:750}
+.reference-list a {color:var(--site-primary);font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.academic-footnote {font-size:.75rem;color:var(--muted);line-height:1.6;margin:19px 0 0}
+@media(max-width:760px){.academic-panel{grid-template-columns:1fr}.academic-identity{border-right:0;border-bottom:1px solid var(--line)}.hero-credit-divider{display:none}}
 </style>
 </head>
 <body>
@@ -172,12 +197,13 @@ h2 { font-size:calc(clamp(1.9rem, 4vw, 3.1rem) * var(--site-heading-scale)); mar
 <header class="site-header">
   <a class="brand" href="#top" aria-label="Lanthanides Chemistry Explorer home"><span class="brand-mark">Ln</span><span>Lanthanides <span style="font-weight:500;color:var(--muted)">/ Chemistry Explorer</span></span></a>
   <nav class="nav" aria-label="Main navigation">
-    <a href="#elements">Elements</a><a href="#properties">Properties</a><a href="#coordination">Coordination & shapes</a><a href="#separation">Separation</a><a href="#spectra">Spectra</a><a href="#uses">Applications</a>
+    <a href="#elements">Elements</a><a href="#properties">Properties</a><a href="#coordination">Coordination & shapes</a><a href="#separation">Separation</a><a href="#spectra">Spectra</a><a href="#uses">Applications</a><a href="#project-information">References</a>
   </nav>
 </header>
 <section class="hero" id="top">
   <h1>The lanthanides,<br>explored in detail.</h1>
   <p>A visual guide to the 4f series—from shared chemical behaviour and separation methods to the coordination numbers, ligand arrangements and shapes that make lanthanide chemistry fascinating.</p>
+  <div class="hero-credit"><span class="hero-credit-code">CHEM423</span><span class="hero-credit-divider"></span><span>Sarah AlSodais</span><span class="hero-credit-sep">·</span><span>Supervised by Dr. Fatemah A. Alkhodair</span></div>
   <div class="hero-actions"><a class="btn btn-light" href="#coordination">Explore coordination shapes <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#elements">Open the element table</a></div>
   <div class="hero-stats"><div class="stat"><strong>15</strong><span>elements · La to Lu</span></div><div class="stat"><strong>57–71</strong><span>atomic numbers</span></div><div class="stat"><strong>+3</strong><span>common oxidation state</span></div><div class="stat"><strong>6–12</strong><span>coordination numbers covered</span></div></div>
 </section>
@@ -253,16 +279,28 @@ h2 { font-size:calc(clamp(1.9rem, 4vw, 3.1rem) * var(--site-heading-scale)); mar
     <article class="panel info-card"><div class="icon-box">◌</div><h3>Element-specific examples</h3><p>Cerium is used in lighter flints, erbium in optical fibres and filters, and europium and dysprosium in neutron-absorbing applications.</p></article>
   </div>
 </section>
-<section class="section" id="project-information" aria-labelledby="project-info-title">
-  <div class="section-head"><div><div class="section-kicker">07 / Project information &amp; references</div><h2 id="project-info-title">Project information &amp; references.</h2><p>Academic information and course-recommended sources for this chemistry explorer.</p></div></div>
-  <div class="info-grid">
-    <article class="panel info-card"><h3>Project information</h3><p><strong>Prepared by:</strong> Sarah AlSodais</p><p><strong>Supervised by:</strong> Dr. Fatemah A. Alkhodair</p><p><strong>Course:</strong> CHEM423</p><p><strong>University:</strong> Princess Nourah bint Abdulrahman University</p></article>
-    <article class="panel info-card"><h3>References</h3><ol style="padding-left:1.25rem;line-height:1.8">
-      <li>Cotton, S. (2006). <em>Lanthanide and Actinide Chemistry</em>. John Wiley &amp; Sons.</li>
-      <li>Huheey, J. E., Keiter, E. A., &amp; Keiter, R. L. (1993). <em>Inorganic Chemistry: Principles of Structure and Reactivity</em> (4th ed.). HarperCollins.</li>
-      <li><em>Lanthanide and Actinide Chemistry</em>. <a href="https://www.researchgate.net/publication/242330372_Lanthanide_and_Actinide_Chemistry" target="_blank" rel="noopener noreferrer">ResearchGate course-recommended link</a>.</li>
-      <li>CHEM423 course lecture materials: Lanthanide chemistry. Princess Nourah bint Abdulrahman University.</li>
-    </ol></article>
+<section class="section academic-section" id="project-information" aria-labelledby="project-info-title">
+  <div class="section-head"><div><div class="section-kicker">07 / Academic credits</div><h2 id="project-info-title">References &amp; credits.</h2><p>Course information and recommended reading for further exploration of lanthanide chemistry.</p></div></div>
+  <div class="academic-panel panel">
+    <div class="academic-identity">
+      <div class="academic-eyebrow">CHEM423 <span aria-hidden="true">/</span> Lanthanide Chemistry</div>
+      <h3>Lanthanides Chemistry Explorer</h3>
+      <p>An interactive chemistry project at Princess Nourah bint Abdulrahman University.</p>
+      <div class="academic-people">
+        <div><span class="academic-label">Prepared by</span><strong>Sarah AlSodais</strong></div>
+        <div><span class="academic-label">Supervised by</span><strong>Dr. Fatemah A. Alkhodair</strong></div>
+      </div>
+    </div>
+    <div class="academic-references">
+      <div class="academic-references-heading"><span class="academic-label">Course-recommended reading</span><span class="academic-ref-count">04 sources</span></div>
+      <ol class="reference-list">
+        <li><div><strong>Cotton, S. (2006).</strong> <em>Lanthanide and Actinide Chemistry.</em> John Wiley &amp; Sons.</div></li>
+        <li><div><strong>Huheey, J. E., Keiter, E. A., &amp; Keiter, R. L. (1993).</strong> <em>Inorganic Chemistry: Principles of Structure and Reactivity</em> (4th ed.). HarperCollins.</div></li>
+        <li><div><strong>Lanthanide and Actinide Chemistry.</strong> <a href="https://www.researchgate.net/publication/242330372_Lanthanide_and_Actinide_Chemistry" target="_blank" rel="noopener noreferrer">ResearchGate course-recommended link ↗</a></div></li>
+        <li><div><strong>CHEM423 course lecture materials.</strong> Lanthanide Chemistry. Princess Nourah bint Abdulrahman University.</div></li>
+      </ol>
+      <p class="academic-footnote">These are course-recommended sources; individual website statements have not all been independently checked against each publication.</p>
+    </div>
   </div>
 </section>
 </main>
